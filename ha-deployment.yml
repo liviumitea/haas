@@ -33,9 +33,9 @@ spec:
       volumes:
         - name: homeassistant-config
           persistentVolumeClaim:
-            claimName: homeassistant-config
+            claimName: homeassistant-config-pvc
         - name: homeassistant-time
           persistentVolumeClaim:
-            claimName: homeassistant-time
+            claimName: homeassistant-time-pvc
             readOnly: true
 status: {}
