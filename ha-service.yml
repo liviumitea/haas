@@ -1,0 +1,17 @@
+## Homeassistant Service ###
+apiVersion: v1
+kind: Service
+metadata:
+  name: haas-service
+  namespace: homeassistant
+  annotations:
+    metallb.universe.tf/allow-shared-ip: "haas-shared-ip"
+spec:
+  selector:
+    app: haas
+  ports:
+  - name: homeassistant
+    port: 8123
+    targetPort: 8123
+  type: LoadBalancer
+  loadBalancerIP: 172.16.23.29

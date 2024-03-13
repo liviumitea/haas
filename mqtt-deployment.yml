@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mqtt
+  namespace: homeassistant
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mqtt
+  template:
+    metadata:
+      labels:
+        app: mqtt
+    spec:
+      containers:
+      - name: mqtt
+        image: eclipse-mosquitto
+        ports:
+        - containerPort: 1883
+        - containerPort: 9001
+        volumeMounts:
+        - mountPath: /mosquitto/config/
+          name: config
+        - mountPath: /mosquitto/data/
+          name: data
+        - mountPath: /mosquitto/password/
+          name: password
+      volumes:
+      - name: config
+        configMap:
+          name: mqtt-config
+      - name: data
+        persistentVolumeClaim:
+          claimName: mqtt-data-pvc
+      - name: password
+        configMap:
+          name: mqtt-password

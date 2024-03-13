@@ -1,0 +1,20 @@
+## MQTT Service ###
+apiVersion: v1
+kind: Service
+metadata:
+  name: mqtt-service
+  namespace: homeassistant
+  annotations:
+    metallb.universe.tf/allow-shared-ip: "haas-shared-ip"
+spec:
+  selector:
+    app: mqtt
+  ports:
+  - name: mqtt1883
+    port: 1883
+    targetPort: 1883
+  - name: mqtt9001
+    port: 9001
+    targetPort: 9001
+  type: LoadBalancer
+  loadBalancerIP: 172.16.23.29

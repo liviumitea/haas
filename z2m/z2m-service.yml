@@ -1,0 +1,17 @@
+## Zigbee2MQTT Service ###
+apiVersion: v1
+kind: Service
+metadata:
+  name: z2m-service
+  namespace: homeassistant
+  annotations:
+    metallb.universe.tf/allow-shared-ip: "haas-shared-ip"
+spec:
+  selector:
+    app: z2m
+  ports:
+  - name: z2m-ui
+    port: 8080
+    targetPort: 8080
+  type: LoadBalancer
+  loadBalancerIP: 10.100.99.89
