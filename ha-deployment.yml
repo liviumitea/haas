@@ -13,7 +13,7 @@ spec:
       labels:
         app: haas
     spec:
-      hostNetwork: true
+      #hostNetwork: true
       containers:
       - name: homeassistant
         image: homeassistant/home-assistant:latest
