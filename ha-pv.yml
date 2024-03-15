@@ -16,20 +16,20 @@ spec:
     volumeHandle: homeassistant-config-pv
 
 
----
-apiVersion: v1
-kind: PersistentVolume
-metadata:
-  name: homeassistant-time-pv
-spec:
-  capacity:
-    storage: 100Mi
-  volumeMode: Filesystem
-  accessModes:
-    - ReadWriteOnce
-  persistentVolumeReclaimPolicy: Retain
-  storageClassName: longhorn
-  csi:
-    driver: driver.longhorn.io
-    fsType: ext4
-    volumeHandle: homeassistant-time-pv
+# ---
+# apiVersion: v1
+# kind: PersistentVolume
+# metadata:
+#   name: homeassistant-time-pv
+# spec:
+#   capacity:
+#     storage: 100Mi
+#   volumeMode: Filesystem
+#   accessModes:
+#     - ReadWriteOnce
+#   persistentVolumeReclaimPolicy: Retain
+#   storageClassName: longhorn
+#   csi:
+#     driver: driver.longhorn.io
+#     fsType: ext4
+#     volumeHandle: homeassistant-time-pv

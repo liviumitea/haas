@@ -15,19 +15,19 @@ spec:
   volumeName: "homeassistant-config-pv"
 
 
----
-apiVersion: v1
-kind: PersistentVolumeClaim
-metadata:
-  name: homeassistant-time-pvc
-  namespace: homeassistant
-  labels:
-    app: homeassistant-label
-spec:
-  accessModes:
-    - ReadWriteOnce
-  storageClassName: longhorn
-  resources:
-    requests:
-      storage: 100Mi
-  volumeName: "homeassistant-time-pv"
+# ---
+# apiVersion: v1
+# kind: PersistentVolumeClaim
+# metadata:
+#   name: homeassistant-time-pvc
+#   namespace: homeassistant
+#   labels:
+#     app: homeassistant-label
+# spec:
+#   accessModes:
+#     - ReadWriteOnce
+#   storageClassName: longhorn
+#   resources:
+#     requests:
+#       storage: 100Mi
+#   volumeName: "homeassistant-time-pv"
