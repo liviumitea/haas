@@ -36,17 +36,17 @@ spec:
         volumeMounts:
           - name: z2m-data
             mountPath: /app/data
-          - name: z2m-udev
+          - name: usb
+            mountPath: /dev/ttyUSB0
+          - name: udev
             mountPath: /run/udev
-          - name: ttyacm
-            mountPath: /dev/ttyACM0
       volumes:
         - name: z2m-data
           persistentVolumeClaim:
             claimName: z2m-data
-        - name: z2m-udev
-          hostPath:
-            path: /run/udev
-        - name: ttyacm
+        - name: usb
           hostPath:
             path: /dev/ttyUSB0
+        - name: udev
+          hostPath:
+            path: /run/udev
