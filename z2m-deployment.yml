@@ -44,9 +44,9 @@ spec:
         - name: z2m-data
           persistentVolumeClaim:
             claimName: z2m-data
-        - name: usb
-          hostPath:
-            path: /dev/ttyUSB0
-        - name: udev
-          hostPath:
-            path: /run/udev
+        # - name: usb
+        #   hostPath:
+        #     path: /dev/ttyUSB0
+        # - name: udev
+        #   hostPath:
+        #     path: /run/udev
