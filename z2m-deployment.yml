@@ -36,10 +36,10 @@ spec:
         volumeMounts:
           - name: z2m-data
             mountPath: /app/data
-          - name: usb
-            mountPath: /dev/ttyUSB0
-          - name: udev
-            mountPath: /run/udev
+          # - name: usb
+          #   mountPath: /dev/ttyUSB0
+          # - name: udev
+          #   mountPath: /run/udev
       volumes:
         - name: z2m-data
           persistentVolumeClaim:
