@@ -35,7 +35,7 @@ spec:
           - containerPort: 8080
         serial:
           port: 'tcp://172.16.23.19:8888'
-          adapter: ezsp
+          adapter: auto
 
         volumeMounts:
           - name: z2m-data
