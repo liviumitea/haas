@@ -22,7 +22,7 @@ spec:
           - name: TZ
             value: Europe/Bucharest
           - name: ZIGBEE2MQTT_CONFIG_MQTT_SERVER
-            value: "mqtt://mqtt-service.homeassistant.svc.cluster.local:1883"
+            value: "mqtt://mqtt-service.svc.cluster.local:1883"
           - name: ZIGBEE2MQTT_CONFIG_MQTT_USER
             value: "mqtt"
           - name: ZIGBEE2MQTT_CONFIG_MQTT_PASSWORD
@@ -33,7 +33,9 @@ spec:
           privileged: true
         ports:
           - containerPort: 8080
-
+        serial:
+          port: 'tcp://172.16.23.19:8888'
+          adapter: auto
         volumeMounts:
           - name: z2m-data
             mountPath: /app/data
