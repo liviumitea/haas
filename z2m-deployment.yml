@@ -13,8 +13,6 @@ spec:
       labels:
         app: z2m
     spec:
-      # nodeSelector:
-      #   kubernetes.io/hostname: raspberry-finn
       containers:
         - name: zigbee2mqtt
           image: koenkk/zigbee2mqtt:latest-dev
@@ -24,10 +22,8 @@ spec:
               value: Europe/Berlin
             - name: "ZIGBEE2MQTT_DATA"
               value: "/data"
-            - name: ZIGBEE2MQTT_CONFIG_MQTT_SERVER # optional - can also be configured in the configuration.yaml in the configmap
+            - name: ZIGBEE2MQTT_CONFIG_MQTT_SERVER
               value: "mqtt://mosquitto"
-          securityContext:
-            privileged: true
           ports:
             - name: http
               containerPort: 8080
@@ -38,10 +34,6 @@ spec:
             - name: zigbee2mqtt-config
               mountPath: /app/configuration.yaml
               subPath: configuration.yaml
-            # - name: zigbee2mqtt-udev
-            #   mountPath: /run/udev
-            # - name: ttyacm
-            #   mountPath: /dev/ttyACM0
           livenessProbe:
             tcpSocket:
               port: 8080
@@ -70,9 +62,3 @@ spec:
         - name: zigbee2mqtt-config
           configMap:
             name: zigbee2mqtt-config
-        # - name: usb
-        #   hostPath:
-        #     path: /dev/ttyUSB0
-        # - name: udev
-        #   hostPath:
-        #     path: /run/udev
