@@ -11,9 +11,9 @@ data:
     homeassistant: true
     mqtt:
       base_topic: zigbee2mqtt
-      server: "mqtt://mqtt-service.homeassistant"
+      server: "mqtt:/z2m-service.homeassistant"
     serial:
-      port: 'tcp://172.16.23.19:8888'
+      port: 'socket://172.16.23.19:8888'
     frontend:
       port: 8080
     advanced:
