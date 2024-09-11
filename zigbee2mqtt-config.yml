@@ -13,7 +13,8 @@ data:
       base_topic: zigbee2mqtt
       server: "mqtt:/z2m-service.homeassistant"
     serial:
-      port: 'socket://172.16.23.19:8888'
+      port: 'tcp://172.16.23.19:8888'
+      adapter: ezsp
     frontend:
       port: 8080
     advanced:
